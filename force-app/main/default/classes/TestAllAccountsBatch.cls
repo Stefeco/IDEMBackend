@@ -1,7 +1,7 @@
 @isTest
 public with sharing class TestAllAccountsBatch {
     
-    @isTest(seeAllData=true) static void testUpdateAllAccountsWithoutBatch(){
+    @isTest(seeAllData=true) static void testUpdateAllAccountsWithoutTaskBatch(){
 
         List<Account> acc = TestDataFactory.createTestAccounts(1, 'TestAccountToDeactivate');
         insert acc;
@@ -43,7 +43,7 @@ public with sharing class TestAllAccountsBatch {
     
         Test.stopTest();
 
-        //System.assertEquals(expected, actual, msg);
+        System.assert(batchId != null, 'Il n\'y a pas eu de taches envoyées');
 
 
 
